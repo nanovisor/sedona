@@ -1,0 +1,21 @@
+{
+  "name": "Sedona",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Ruslan G."
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.1.1",
+    "picturefill": "^3.0.2"
+  }
+}
