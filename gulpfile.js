@@ -12,84 +12,97 @@ var gulp         = require('gulp'),
     runSequence  = require('run-sequence'),
     autoprefixer = require('gulp-autoprefixer');
 
-// Static server
+
+// gulp browserSync - run static server
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: 'app'
-    },
-    // Tunnel the Browsersync server through a random Public URL
-    // tunnel: true
+    }
   });
 });
 
-// Scss to Css, autoprefix, inject new CSS styles (update the CSS) into the browser
+// gulp browserSync-tunnel - tunnel the Browsersync server through a random Public URL
+gulp.task('browserSync-tunnel', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'app'
+    },
+    open: false, // откл. автооткрытие
+    tunnel: true
+  });
+});
+
+// gulp sass - SCSS => CSS => autoprefix => сохранить в папку APP/CSS/ => перезагрузить браузер
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer('last 15 versions', '> 1%', 'ie7', 'ie8', 'ie9', 'ie10', 'ie11'))
+    .pipe(autoprefixer('ie >= 8', 'last 15 versions', '> 1%'))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
-// Берет указанные в Html блоки Css и Script, объединяет, сжимает
+// gulp useref - находит в Html блоки Css и Script, объединяет, сжимает, кидает в dist
 gulp.task('useref', function() {
   return gulp.src('app/*.html')
     .pipe(useref())
-    // Minifies only if it's a JavaScript file
+    // if JS => uglify
     .pipe(gulpIf('*.js', uglify()))
-    // Minifies only if it's a CSS file
+    // if CSS => cssnano
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
 });
 
-// Картинки
+// gulp images - сжатие картинок
 gulp.task('images', function() {
   return gulp.src('app/img/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin({
       interlaced: true,
       progressive: true,
-      svgoPlugins: [{removeViewBox: false}]
-      // BUG pngquant
+      svgoPlugins: [{
+        removeViewBox: false
+      }],
+      // BUG pngquant иногда выдает ошибку
       // use: [pngquant()]
     })))
-    .pipe(gulp.dest('dist/img'))
+    .pipe(gulp.dest('dist/img'));
 });
 
-// Шрифты
+// gulp fonts - копирует шрифты
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
-    .pipe(gulp.dest('dist/fonts'))
+    .pipe(gulp.dest('dist/fonts'));
 });
 
-// Удаление dist
-// BUG надо закрывать Atom
-gulp.task('clean:dist', function() {
+// gulp dist:remove - удаляет папку dist
+gulp.task('dist:remove', function() {
   return del.sync('dist');
 });
 
-// Очистка кэша
+// gulp cache:clear - чистит кэш
 gulp.task('cache:clear', function(callback) {
   return cache.clearAll(callback);
 });
 
-// Наблюдение за изменениями
+// gulp watch - наблюдение за изменениями HTML, SCSS, JS
 gulp.task('watch', ['browserSync', 'sass'], function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
-// Создает готовый дистрибутив, в массиве таски запускаются беспорядочно
+// gulp build - создает готовый дистрибутив
 gulp.task('build', function(callback) {
-  runSequence('clean:dist',
-    ['sass', 'useref', 'images', 'fonts'],
-    callback)
+  runSequence('dist:remove',
+    ['sass', 'images', 'fonts'], // в массиве таски запускаются беспорядочно
+    'useref',
+    callback);
 });
 
+// gulp - для начала работы
 gulp.task('default', function(callback) {
   runSequence(['sass', 'browserSync', 'watch'],
-    callback)
+    callback);
 });
