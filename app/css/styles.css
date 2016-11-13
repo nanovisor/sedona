@@ -123,14 +123,27 @@ body {
         .main-nav__link:active {
           color: rgba(0, 0, 0, 0.3); } }
     .main-nav__link--logo {
+      position: relative;
       height: 60px;
       padding: 0;
       background-color: #fff; }
       .main-nav__link--logo:hover {
         background-color: #fff; }
+      .main-nav__link--logo:before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 138px;
+        height: 70px;
+        margin-left: -69px;
+        content: '';
+        background: url("../img/logo-triangle.svg") no-repeat;
+        background-position: center;
+        z-index: 5000; }
   .main-nav__logo-img {
     position: relative;
-    z-index: 200; }
+    left: 2px;
+    z-index: 9999; }
   .main-nav__hamburger-btn {
     position: absolute;
     top: 0;
@@ -181,8 +194,7 @@ body {
     width: 148px;
     height: 34px;
     margin-top: 47px;
-    margin-bottom: 9px;
-    fill: #81b3d2; }
+    margin-bottom: 9px; }
     @media (min-width: 768px) {
       .jumbotron__welcome-img {
         width: 196px;
