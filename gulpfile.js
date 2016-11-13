@@ -37,7 +37,10 @@ gulp.task('browserSync-tunnel', function() {
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer('ie >= 8', 'last 15 versions', '> 1%'))
+    .pipe(autoprefixer({
+      browsers: ['last 15 versions'],
+      cascade: true
+    }))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
