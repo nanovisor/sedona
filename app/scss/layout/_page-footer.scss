@@ -1,0 +1,150 @@
+.map {
+  position: relative;
+  height: 592px;
+  background: url("../img/map-320@1x.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    background: url("../img/map-320@2x.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
+    background: url("../img/map-320@3x.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px) {
+    background: url("../img/map-768-1280@1x.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background: url("../img/map-768-1280@2x.jpg") no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    @media (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+      background: url("../img/map-768-1280@3x.jpg") no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__bottom-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 230px;
+    background-color: rgba(255, 255, 255, .8);
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      height: 120px;
+    }
+  }
+}
+
+#map__google {
+  display: none;
+
+  @media (min-width: 1279px) {
+    display: block;
+  }
+}
+
+.hashtag {
+  font-size: 21px;
+  line-height: 26px;
+}
+
+.social {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    margin-right: 6px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #81b3d2;
+
+    &:hover {
+      background-color: #669ec0;
+    }
+
+    &:active {
+      background-color: #5496bd;
+
+      .social__icon {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  &__icon {
+    fill: #fff;
+  }
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+
+  &__link {
+    display: block;
+    margin-left: 12px;
+
+    &:first-child {
+      margin-right: 12px;
+    }
+
+    &:hover {
+      fill: #81b3d2;
+    }
+
+    &:active {
+      fill: #bdbbbc;
+    }
+
+  }
+
+  &__icon-by {
+    margin-top: 10px;
+  }
+
+  &__icon-for {
+    margin-top: 10px;
+  }
+}

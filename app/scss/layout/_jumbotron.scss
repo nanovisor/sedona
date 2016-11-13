@@ -1,0 +1,76 @@
+.jumbotron {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../img/photo-background@1x.jpg") no-repeat;
+  background-size: cover;
+  z-index: 100;
+
+  @media (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    background: url("../img/photo-background@2x.jpg") no-repeat;
+    background-size: cover;
+  }
+
+  &:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 57px;
+    background: url("../img/jumbotron-triangles-v3-final-1280-57--plain.svg") no-repeat;
+    background-position: center;
+    content: "";
+  }
+
+  &__welcome-img {
+    width: 148px;
+    height: 34px;
+    margin-top: 47px;
+    margin-bottom: 9px;
+
+    @media (min-width: 768px) {
+      width: 196px;
+      height: 46px;
+      margin-top: 75px;
+    }
+  }
+
+  &__gorgeous-img {
+    width: 196px;
+    height: 23px;
+    margin-bottom: 60px;
+
+    @media (min-width: 768px) {
+      width: 256px;
+      height: 30px;
+      margin-bottom: 54px;
+    }
+  }
+
+  &__sedona-img {
+    width: 279px;
+    height: 47px;
+    margin-bottom: 68px;
+
+    @media (min-width: 768px) {
+      width: 456px;
+      height: 76px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__because-img {
+    width: 196px;
+    height: 54px;
+    margin-bottom: 48px;
+
+    @media (min-width: 768px) {
+      width: 295px;
+      height: 80px;
+      margin-bottom: 84px;
+    }
+  }
+}

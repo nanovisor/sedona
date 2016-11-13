@@ -1,0 +1,27 @@
+.btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+
+  &--search {
+    max-width: 568px;
+    padding: 32px 0;
+    font-size: 18px;
+    line-height: 26px;
+    color: #fff;
+    background-color: #766357;
+
+    &:hover {
+      background-color: #604e43;
+    }
+
+    &:active {
+      background-color: #503e33;
+    }
+
+    &:active .btn__text {
+      opacity: .3;
+    }
+  }
+}

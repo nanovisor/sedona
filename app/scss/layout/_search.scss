@@ -1,0 +1,22 @@
+.search {
+  text-align: center;
+
+  &__heading {
+    margin: 0;
+    padding: 0 20px;
+    padding-top: 30px;
+    padding-bottom: 23px;
+    font-size: 21px;
+    line-height: 26px;
+  }
+
+  &__descr {
+    margin: 0;
+    padding: 0 20px;
+    padding-bottom: 27px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #333;
+  }
+}

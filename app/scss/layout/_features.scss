@@ -1,0 +1,143 @@
+.features {
+  padding: 0 20px;
+  padding-top: 41px;
+  padding-bottom: 41px;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    margin-bottom: 32px;
+    padding-left: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+      width: 33.33333%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    position: relative;
+    margin: 0;
+    margin-bottom: 18px;
+    font-size: 18px;
+    line-height: 26px;
+
+    @media (min-width: 768px) {
+      padding-top: 160px;
+      margin-bottom: 22px;
+      font-size: 21px;
+    }
+
+    &:before {
+      position: absolute;
+      top: -10px;
+      left: -48px;
+      width: 37px;
+      height: 38px;
+      content: "";
+
+      @media (min-width: 768px) {
+        top: 60px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75px;
+        height: 76px;
+      }
+    }
+
+    &--house:before {
+      background: url("../img/icon-house@1x.png") no-repeat;
+      background-position: 0 2px;
+      background-size: contain;
+
+      @media (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+        background: url("../img/icon-house@2x.png") no-repeat;
+        background-position: 0 2px;
+        background-size: contain;
+      }
+
+      @media (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+        background: url("../img/icon-house@3x.png") no-repeat;
+        background-position: 0 2px;
+        background-size: contain;
+      }
+    }
+
+    &--gift:before {
+      background: url("../img/icon-gift@1x.png") no-repeat;
+      background-position: 5px 0;
+      background-size: contain;
+
+      @media (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+        background: url("../img/icon-gift@2x.png") no-repeat;
+        background-position: 5px 0;
+        background-size: contain;
+      }
+
+      @media (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+        background: url("../img/icon-gift@3x.png") no-repeat;
+        background-position: 5px 0;
+        background-size: contain;
+      }
+    }
+
+    &--burger:before {
+      background: url("../img/icon-burger@1x.png") no-repeat;
+      background-position: 0 3px;
+      background-size: contain;
+
+      @media (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+        background: url("../img/icon-burger@2x.png") no-repeat;
+        background-position: 0 3px;
+        background-size: contain;
+      }
+
+      @media (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+        background: url("../img/icon-burger@3x.png") no-repeat;
+        background-position: 0 3px;
+        background-size: contain;
+      }
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+
+    @media (min-width: 768px) {
+      padding: 0 20px;
+      padding-bottom: 64px;
+    }
+  }
+}
