@@ -1,5 +1,5 @@
 var form = document.querySelector('.form-search');
-var btnSearch = document.querySelector('.search__btn');
+var btnSearch = document.querySelector('.btn--search');
 
 var adultInput = form.querySelector('#adult-input');
 var adultMinus = form.querySelector('#adult-minus');
