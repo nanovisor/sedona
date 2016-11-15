@@ -49,6 +49,7 @@
   }
 
   &__input {
+    -webkit-appearance: none;
     width: 100%;
     height: 42px; // for ie
     padding: 8px 0;
