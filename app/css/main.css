@@ -157,7 +157,6 @@ body {
         z-index: 5000; }
   .main-nav__logo-img {
     position: relative;
-    left: 2px;
     z-index: 9999; }
   .main-nav__hamburger-btn {
     position: absolute;
