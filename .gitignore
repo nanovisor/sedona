@@ -1,5 +1,3 @@
 node_modules/
 app/bower_components/
-dist/
 temp/
-app/css/main.css
