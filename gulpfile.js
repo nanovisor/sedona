@@ -68,7 +68,7 @@ gulp.task('images', function() {
         removeViewBox: false
       }],
       // BUG pngquant иногда выдает ошибку
-      // use: [pngquant()]
+      use: [pngquant()]
     })))
     .pipe(gulp.dest('dist/img'));
 });
